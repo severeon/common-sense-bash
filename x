@@ -16,6 +16,7 @@ function printhelp() {
   echo "        -xf  --xfork       execute all commands in parellel instead of one-by-one"
   echo "        -xh  --xhelp       print help"
   echo "        -xv  --xversion    print version"
+  echo "        -o   --out         extract to destination"
 }
 
 function printversion() {
@@ -91,7 +92,9 @@ for ((i=0; $i<${#FILES[@]}; i++ )); do
       *.tar.bz2)   COMMAND=("tar xjf") ;;
       *.tar.gz)    COMMAND=("tar xzf") ;;
       *.tar.lzma)  COMMAND=("tar --lzma -xf") ;;
+      *.tar.xz)    COMMAND=("tar -Jxf") ;;
       *.bz2)       COMMAND=("bunzip2") ;;
+      *.xz)        COMMAND=("tar -xvJf") ;;
       *.rar)       COMMAND=("rar x") ;;
       *.gz)        COMMAND=("gunzip") ;;
       *.tar)       COMMAND=("tar xf") ;;
